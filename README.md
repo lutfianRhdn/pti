@@ -67,7 +67,10 @@ To run this project, you will need to add the following environment variables to
 `NEXT_PUBLIC_API_URL`
 `NEXTAUTH_SECRET`
 `NEXTAUTH_URL`
+`NEXT_PUBLIC_NASA_API_KEY`
+`NEXT_PUBLIC_NASA_API_ENDPOINT`
 
+for `NEXT_PUBLIC_NASA_API_KEY` you can register on [NASA OPEN API](https://api.nasa.gov/) and you can check on your email for get a API_KEY or you can use us `NEXT_PUBLIC_NASA_API_KEY` is `X32Ele6JmRLfvDWLqQwgsWIf6ylcfXzE5TU4atnE`
 ## License
 
 This project is licensed under the MIT License.
