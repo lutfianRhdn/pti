@@ -1,40 +1,75 @@
-# Next.js & NextUI Template
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+# SpaaceVista
 
-## Technologies Used
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/) [![NEXTJS](https://img.shields.io/badge/Next.js-13-green.svg)](https://nextjs.org/) [![Tailwind](https://img.shields.io/badge/Tailwind-lastest-green.svg)](https://tailwindcss.com/) [![Mysql](https://img.shields.io/badge/mysql-lastest-green.svg)](https://www.mysql.com/) [![Prisma](https://img.shields.io/badge/Prisma-lastest-green.svg)](https://www.prisma.io/)
 
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Project Description
 
-## How to Use
+## Table of Content
 
+ - [How to Install and Run the Project](#How-to-Install-and-Run-the-Project)
+ - [How to Use the Project](#How-to-Use-the-Project)
+ - [Credits](#Credits)
+ - [License](#license)
+ - [How to Contribute to the Project](#How-to-Contribute-to-the-Project)
 
-### Use the template with create-next-app
+## How to Install and Run the Project
+To install and run the SpaaceVista project locally, please follow these steps:
 
-To create a new project based on this template using `create-next-app`, run the following command:
-
+ 1.Clone the repository from GitHub:    
 ```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+  git clone https://github.com/lutfianRhdn/SpaaceVista.git
 ```
 
-### Install dependencies
-
+Navigate to the project directory:
 ```bash
-npm install
+  cd SpaaceVista
+```
+Install the project dependencies using a package manager such as npm or yarn:
+```bash
+  npm install
+```
+or
+```bash
+  yarn install
+```
+Copy example environment file to new file
+```bash
+  cp .env.example .env
 ```
 
-### Run the development server
-
+Generate Prisma Client.
 ```bash
-npm run dev
+  npx prisma generate
 ```
+
+Migrate Database.
+```bash
+  npm run prisma:migrate dev
+```
+
+Run the development server.
+```bash
+  npm run dev
+```
+or
+```bash
+  yarn dev
+```
+Access the website locally at http://localhost:3000.
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+`DATABASE_URL`
+`NEXT_PUBLIC_BASE_URL`
+`NEXT_PUBLIC_API_URL`
+`NEXTAUTH_SECRET`
+`NEXTAUTH_URL`
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+This project is licensed under the MIT License.
+
+
