@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id              Int               @id @default(autoincrement())
+  email           String            @unique
+  name            String
+  password        String
+  birthday        DateTime
+  image_banner    String            @default("https://apod.nasa.gov/apod/image/2402/sts98plume_nasa_1111.jpg")
+  image_profile   String            @default("https://ui-avatars.com/api/?background=random")
+  role            Role              @default(USER)
+  created_at      DateTime          @default(now())
+  updated_at      DateTime          @updatedAt
+  events          Event[]
+  comments        Comment[]
+  likes_posts     LikeOnPost[]
+  likes_events    LikeOnEvent[]
+
+  followers       UserFollowers[]   @relation("UserFollowersFollowing")
+  following       UserFollowers[]   @relation("UserFollowersFollowers")  
+}
+
+model UserFollowers {
+  followingId Int
+  followerId  Int
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  following   User     @relation("UserFollowersFollowing", fields: [followingId], references: [id])
+  follower    User     @relation("UserFollowersFollowers", fields: [followerId], references: [id])
+  @@id([followingId, followerId])
+}
+model Post {
+  id         Int               @id @default(autoincrement())
+  title      String
+  caption    String            @db.Text
+  image      String
+  published  Boolean           @default(false)
+  created_at DateTime          @default(now())
+  updated_at DateTime          @updatedAt
+  events     Event[]
+  comments   CommentsOnPosts[]
+  likes      LikeOnPost[]
+}
+
+model LikeOnPost {
+  id         Int      @id @default(autoincrement())
+  postId     Int
+  userId     Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  post       Post     @relation(fields: [postId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+model LikeOnEvent {
+  id         Int      @id @default(autoincrement())
+  eventId   Int
+  userId    Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  event      Event    @relation(fields: [eventId], references: [id])
+  user       User     @relation(fields: [userId], references: [id])
+}
+
+model CommentsOnPosts {
+  post      Post    @relation(fields: [postId], references: [id])
+  postId    Int
+  comment   Comment @relation(fields: [commentId], references: [id])
+  commentId Int
+
+  @@id([postId, commentId])
+}
+
+model Comment {
+  id         Int                @id @default(autoincrement())
+  text       String
+  authorId   Int
+  created_at DateTime           @default(now())
+  updated_at DateTime           @updatedAt
+  author     User               @relation(fields: [authorId], references: [id])
+  posts      CommentsOnPosts[]
+  events     CommentsOnEvents[]
+}
+
+model CommentsOnEvents {
+  event     Event   @relation(fields: [eventId], references: [id])
+  eventId   Int
+  comment   Comment @relation(fields: [commentId], references: [id])
+  commentId Int
+
+  @@id([eventId, commentId])
+}
+
+model Event {
+  id         Int                @id @default(autoincrement())
+  image      String
+  caption    String
+  postId     Int
+  authorId   Int
+  created_at DateTime           @default(now())
+  updated_at DateTime           @updatedAt
+  author     User               @relation(fields: [authorId], references: [id])
+  post       Post               @relation(fields: [postId], references: [id])
+  comments   CommentsOnEvents[]
+  likes      LikeOnEvent[]
+}
