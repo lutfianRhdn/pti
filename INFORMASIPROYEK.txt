@@ -1,0 +1,32 @@
+INFORMASI PROYEK
+project ini menggunakan nodejs version 21 dan menggunakan mysql. 
+
+IDENTITAS KELOMPOK
+Kelas : IF-4
+
+Nama : Lutian Rahdiansyah
+NIM : 10121127
+
+Nama : Muhammad Fariz Hartawan
+NIM : 10121143
+
+Nama : Lutian Rahdiansyah
+NIM : 10121127
+
+Nama : Lutian Rahdiansyah
+NIM : 10121127
+
+INSTALLATION
+1. Clone Project dari github (https://github.com/lutfianRhdn/SpaceVista)
+2. jalankan perintah `npm install`
+3. jalankan perintah `cp .env.example .env`
+4. jalankan perintah `cp .env.example .env`
+5. jalankan perintah `php artisan key:generate`
+6. jalankan perintah `npx prisma generate`
+7. jalankan perintah `npm run prisma:migrate dev`
+8. jalankan perintah `npm run dev`
+9. Project dapat diakses di http://localhost:3000
+note: pastikan nama database sesuai dengan yang ada di file .env
+
+INFORMASI
+1. ketika melakukan login, psatikan anda telah melakukan registrasi terlebih dahulu
