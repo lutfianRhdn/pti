@@ -1,5 +1,5 @@
 INFORMASI PROYEK
-project ini menggunakan nodejs version 21 dan menggunakan mysql. 
+project ini menggunakan nodejs version 21 dan menggunakan mysql. dan untuk identitas kelompok berada difile /app/layout.tsx 
 
 IDENTITAS KELOMPOK
 Kelas : IF-4
