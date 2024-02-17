@@ -10,11 +10,11 @@ NIM : 10121127
 Nama : Muhammad Fariz Hartawan
 NIM : 10121143
 
-Nama : Lutian Rahdiansyah
-NIM : 10121127
+Nama : Asifa Lestari
+NIM : 10121142
 
-Nama : Lutian Rahdiansyah
-NIM : 10121127
+Nama : Edwin Liona Jaya
+NIM    : 10121154
 
 INSTALLATION
 1. Clone Project dari github (https://github.com/lutfianRhdn/SpaceVista)
