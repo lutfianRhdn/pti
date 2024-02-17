@@ -6,6 +6,21 @@ import { Providers } from "./providers";
 import clsx from "clsx";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
+// IDENTITAS KELOMPOK
+// Kelas : IF-4
+
+// Nama : Lutian Rahdiansyah
+// NIM : 10121127
+
+// Nama : Muhammad Fariz Hartawan
+// NIM : 10121143
+
+// Nama : Asifa Lestari
+// NIM : 10121142
+
+// Nama : Edwin Liona Jaya
+// NIM    : 10121154
+
 export const metadata: Metadata = {
 	title: {
 		default: siteConfig.name,
